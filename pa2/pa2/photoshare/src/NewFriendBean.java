@@ -10,24 +10,31 @@ import java.util.List;
  */
 public class NewFriendBean {
   private String email = "";
+  private String first = "";
+  private String last = "";
+
 
   public String getEmail() {
     return email;
   }
 
+  public String getFirst() {
+    return first;
+  }
+
+  public String getLast() {
+    return last;
+  }
+
   public void setEmail(String email) {
     this.email = email;
   }
+
+  public void setFirst(String first) {
+    this.first = first;
+  }
   
-  // public int getUID() {
-  //   return uid;
-  // }
-
-  // public void setFID(int fid) {
-  //   this.fid = fid;
-  // }
-
-  // public void setUID(String uid) {
-  //   this.uid = uid;
-  // }
+  public void setLast(String last) {
+    this.last = last;
+  }
 }

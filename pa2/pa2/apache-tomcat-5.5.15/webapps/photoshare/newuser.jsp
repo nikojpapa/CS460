@@ -51,32 +51,32 @@
 
 <form action="newuser.jsp" method="post">
   **Required**<br>
-  First Name: <input type="text" name="first"/><br>
-  Last Name: <input type="text" name="last"/><br>
-  Email: <input type="text" name="email"/><br>
-  Date of Birth: <input type="text" name="dob"/><br>
-  Password: <input type="password" name="password1"/><br>
-  Re-enter password: <input type="password" name="password2"/><br>
+  <p style="text-indent: 5em;">First Name: <input type="text" name="first"/></p><br>
+  <p style="text-indent: 5em;">Last Name: <input type="text" name="last"/></p><br>
+  <p style="text-indent: 5em;">Email: <input type="text" name="email"/></p><br>
+  <p style="text-indent: 5em;">Date of Birth: <input type="text" name="dob"/></p><br>
+  <p style="text-indent: 5em;">Password: <input type="password" name="password1"/></p><br>
+  <p style="text-indent: 5em;">Re-enter password: <input type="password" name="password2"/></p><br>
   <br>
   **Optional**<br>
-  Gender: <input type="text" name="gender"/><br>
+  <p style="text-indent: 5em;">Gender: <input type="text" name="gender"/></p><br>
   <br>
-  --Hometown--<br>
-  City: <input type="text" name="h_city"/><br>
-  State: <input type="text" name="h_state"/><br>
-  Country: <input type="text" name="h_country"/><br>
+  <p style="text-indent: 5em;">--Hometown--</p><br>
+  <p style="text-indent: 5em;">City: <input type="text" name="h_city"/></p><br>
+  <p style="text-indent: 5em;">State: <input type="text" name="h_state"/></p><br>
+  <p style="text-indent: 5em;">Country: <input type="text" name="h_country"/></p><br>
   <br>
-  --Current Location--<br>
-  City: <input type="text" name="c_city"/><br>
-  State: <input type="text" name="c_state"/><br>
-  Country: <input type="text" name="c_country"/><br>
+  <p style="text-indent: 5em;">--Current Location--</p><br>
+  <p style="text-indent: 5em;">City: <input type="text" name="c_city"/></p><br>
+  <p style="text-indent: 5em;">State: <input type="text" name="c_state"/></p><br>
+  <p style="text-indent: 5em;">Country: <input type="text" name="c_country"/></p><br>
   <br>
-  --Education--<br>
-  Highschool Name: <input type="text" name="h_name"/><br>
-  Highschool Graduation Date: <input type="text" name="h_grad"/><br>
+  <p style="text-indent: 5em;">--Education--</p><br>
+  <p style="text-indent: 5em;">Highschool Name: <input type="text" name="h_name"/></p><br>
+  <p style="text-indent: 5em;">Highschool Graduation Date: <input type="text" name="h_grad"/></p><br>
   <br>
-  College Name: <input type="text" name="c_name"/><br>
-  College Graduation Date: <input type="text" name="c_grad"/><br>
+  <p style="text-indent: 5em;">College Name: <input type="text" name="c_name"/></p><br>
+  <p style="text-indent: 5em;">College Graduation Date: <input type="text" name="c_grad"/></p><br>
   <input type="submit" value="Create"/><br/>
 </form>
 

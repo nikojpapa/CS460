@@ -17,8 +17,11 @@
    String userEmail = request.getUserPrincipal().getName();
    String first_name = "";
    String last_name = "";
+   String search_results = "";
 
    NewFriendDao newFriendDao = new NewFriendDao();
+
+   System.out.println("first: " + newFriendBean.getFirst());
    
    if (!newFriendBean.getEmail().equals("")) {
 
@@ -32,6 +35,9 @@
      } else {
        err = "Couldn't add friend (that friend may already be added)";
      }
+   } else if (!newFriendBean.getFirst().equals("") || !newFriendBean.getLast().equals("")) {
+      search_results = newFriendDao.simpleSearch(newFriendBean.getFirst(), newFriendBean.getLast());
+      System.out.println("SEARCH: " + search_results);
    }
 
    String friend_list = newFriendDao.getFriendList(userEmail);
@@ -51,9 +57,20 @@
 
 <h2>Add Friend</h2>
 <form action="friendList.jsp" method="post">
-  Email: <input type="text" name="email"/><br>
+  Email: <input type="text" name="email" id="emailInput"/><br>
   <input type="submit" value="Add"/><br>
 </form>
+
+**or**<br><br>
+
+<form action="friendList.jsp" method="post">
+  Search:<br>
+  <%= search_results %>
+  <p style="text-indent: 1em;">First Name: <input type="text" name="first"/></p>
+  <p style="text-indent: 1em;">Last Name: <input type="text" name="last"/></p>
+  <input type="submit" value="Search"/><br>
+</form>
+
 
 <h2>Friend List</h2>
 

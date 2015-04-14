@@ -2302,3 +2302,88 @@ AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@6ff
    RemoveAbandonedTimeout: 10
 SELECT first_name FROM Users WHERE email = ?
 SELECT last_name FROM Users WHERE email = ?
+Apr 14, 2015 2:26:04 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 2:26:04 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@413aa7d4)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 14, 2015 2:27:04 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 2:27:04 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@76ece7a6)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 14, 2015 2:28:14 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 2:28:14 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@7c070ccb)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 14, 2015 3:02:25 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 3:02:25 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@57dbe098)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: 
+first: Nicholas
+SEARCH: 
+first: 
+Apr 14, 2015 3:16:15 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 3:16:15 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+first: 
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@179b9b1b)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: Nicholas
+first: 
+Apr 14, 2015 3:17:15 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 3:17:15 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@e6f205e)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: 
+first: Nicholas
+org.postgresql.util.PSQLException: The column index is out of range: 3, number of columns: 2.
+	at org.postgresql.jdbc2.AbstractJdbc2ResultSet.checkColumnIndex(AbstractJdbc2ResultSet.java:2445)
+	at org.postgresql.jdbc2.AbstractJdbc2ResultSet.checkResultSet(AbstractJdbc2ResultSet.java:2454)
+	at org.postgresql.jdbc2.AbstractJdbc2ResultSet.getString(AbstractJdbc2ResultSet.java:1882)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:174)
+	at photoshare.NewFriendDao.simpleSearch(NewFriendDao.java:64)
+	at org.apache.jsp.friendList_jsp._jspService(org.apache.jsp.friendList_jsp:87)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:524)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)

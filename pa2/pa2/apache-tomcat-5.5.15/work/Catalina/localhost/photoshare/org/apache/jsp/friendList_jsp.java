@@ -65,8 +65,11 @@ public final class friendList_jsp extends org.apache.jasper.runtime.HttpJspBase
    String userEmail = request.getUserPrincipal().getName();
    String first_name = "";
    String last_name = "";
+   String search_results = "";
 
    NewFriendDao newFriendDao = new NewFriendDao();
+
+   System.out.println("first: " + newFriendBean.getFirst());
    
    if (!newFriendBean.getEmail().equals("")) {
 
@@ -80,6 +83,9 @@ public final class friendList_jsp extends org.apache.jasper.runtime.HttpJspBase
      } else {
        err = "Couldn't add friend (that friend may already be added)";
      }
+   } else if (!newFriendBean.getFirst().equals("") || !newFriendBean.getLast().equals("")) {
+      search_results = newFriendDao.simpleSearch(newFriendBean.getFirst(), newFriendBean.getLast());
+      System.out.println("SEARCH: " + search_results);
    }
 
    String friend_list = newFriendDao.getFriendList(userEmail);
@@ -106,9 +112,22 @@ public final class friendList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<h2>Add Friend</h2>\n");
       out.write("<form action=\"friendList.jsp\" method=\"post\">\n");
-      out.write("  Email: <input type=\"text\" name=\"email\"/><br>\n");
+      out.write("  Email: <input type=\"text\" name=\"email\" id=\"emailInput\"/><br>\n");
       out.write("  <input type=\"submit\" value=\"Add\"/><br>\n");
       out.write("</form>\n");
+      out.write("\n");
+      out.write("**or**<br><br>\n");
+      out.write("\n");
+      out.write("<form action=\"friendList.jsp\" method=\"post\">\n");
+      out.write("  Search:<br>\n");
+      out.write("  ");
+      out.print( search_results );
+      out.write("\n");
+      out.write("  <p style=\"text-indent: 1em;\">First Name: <input type=\"text\" name=\"first\"/></p>\n");
+      out.write("  <p style=\"text-indent: 1em;\">Last Name: <input type=\"text\" name=\"last\"/></p>\n");
+      out.write("  <input type=\"submit\" value=\"Search\"/><br>\n");
+      out.write("</form>\n");
+      out.write("\n");
       out.write("\n");
       out.write("<h2>Friend List</h2>\n");
       out.write("\n");
