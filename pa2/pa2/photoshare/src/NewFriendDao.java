@@ -27,22 +27,21 @@ public class NewFriendDao {
       "Friends (fid, uid) VALUES (?, ?)";
 
   public String simpleSearch(String first, String last) {
-    String search_columns = "";
     String search_conditions = "";
     ArrayList<String> fields = new ArrayList<String>();
     if (!first.equals("")) {
-      search_columns += "first_name, ";
       search_conditions += "first_name = ? AND ";
       fields.add(first);
     }
     if (!last.equals("")) {
-      search_columns += "last_name, ";
       search_conditions += "last_name = ? AND ";
       fields.add(last);
     }
+    int num_params = fields.size();
 
     String simple_search_stmt = "SELECT " +
-      search_columns + "email FROM Users WHERE " + search_conditions + "1=1";
+      "first_name, last_name, email FROM Users WHERE " + search_conditions + "1=1";
+    System.out.println(simple_search_stmt);
 
     PreparedStatement stmt = null;
     Connection conn = null;
@@ -50,26 +49,25 @@ public class NewFriendDao {
     try {
       conn = DbConnection.getConnection();
       stmt = conn.prepareStatement(simple_search_stmt);
-      for (int i = 0; i < fields.size(); i++) {
+      for (int i = 0; i < num_params; i++) {
         stmt.setString(i+1, fields.get(i));
       }
       rs = stmt.executeQuery();
 
-      int columns = rs.getMetaData().getColumnCount();
-
+      int columns = 3;
       String list = "";
 
       while (rs.next()) {
 
-          String persons_email = rs.getString(3);
-          list += "<a href='javascript:void(0);' onclick=\"document.getElementById('emailInput').value = " + persons_email + ";\">-";
+          String persons_email = rs.getString(columns);
+          list += "<a href='javascript:void(0);' onclick=\"document.getElementById('emailInput').value = '" + persons_email + "';\">-";
           for (int i = 1; i <= columns; i++) {
             list += " " + rs.getString(i);
             if (i == 2) {
-              list += ",";
+              list += " |";
             }
           }
-          list += "<br>";
+          list += "</a><br>";
       }
       return list;
 
@@ -107,7 +105,6 @@ public class NewFriendDao {
       conn = DbConnection.getConnection();
       stmt = conn.prepareStatement(get_name_stmt);
       stmt.setString(1, email);
-      System.out.println(get_name_stmt);
       rs = stmt.executeQuery();
       if (rs.next()) {
 

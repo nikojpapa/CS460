@@ -20,8 +20,6 @@
    String search_results = "";
 
    NewFriendDao newFriendDao = new NewFriendDao();
-
-   System.out.println("first: " + newFriendBean.getFirst());
    
    if (!newFriendBean.getEmail().equals("")) {
 

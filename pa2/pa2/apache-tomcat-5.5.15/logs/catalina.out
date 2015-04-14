@@ -2387,3 +2387,120 @@ org.postgresql.util.PSQLException: The column index is out of range: 3, number o
 	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
 	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
 	at java.lang.Thread.run(Thread.java:695)
+Apr 14, 2015 6:14:36 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:14:36 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@691ba57a)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: 
+first: Nicholas
+1
+org.postgresql.util.PSQLException: The column index is out of range: 3, number of columns: 2.
+	at org.postgresql.jdbc2.AbstractJdbc2ResultSet.checkColumnIndex(AbstractJdbc2ResultSet.java:2445)
+	at org.postgresql.jdbc2.AbstractJdbc2ResultSet.checkResultSet(AbstractJdbc2ResultSet.java:2454)
+	at org.postgresql.jdbc2.AbstractJdbc2ResultSet.getString(AbstractJdbc2ResultSet.java:1882)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:174)
+	at photoshare.NewFriendDao.simpleSearch(NewFriendDao.java:65)
+	at org.apache.jsp.friendList_jsp._jspService(org.apache.jsp.friendList_jsp:87)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:524)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 14, 2015 6:17:07 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:17:07 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+first: 
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@3256e684)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: Nicholas
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = Nicholas;">- Nicholas<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = Nicholas;">- Nicholas<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = Nicholas;">- Nicholas<br>
+Apr 14, 2015 6:19:57 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:19:57 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@45612e53)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: 
+first: Nicholas
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'Nicholas';">- Nicholas<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'Nicholas';">- Nicholas<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'Nicholas';">- Nicholas<br>
+Apr 14, 2015 6:21:07 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:21:07 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@13e6f1f4)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+first: 
+first: Nicholas
+SELECT first_name, email FROM Users WHERE first_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'Nicholas';">- Nicholas<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'Nicholas';">- Nicholas<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'Nicholas';">- Nicholas<br>
+Apr 14, 2015 6:24:27 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:24:27 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@129e49c0)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+SELECT first_name, email FROM Users WHERE first_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas nicholas.papadopoulos@comcast.net,<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas npapa@bu.edu,<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas blah@gmail.com,<br>
+SELECT first_name, email FROM Users WHERE first_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas nicholas.papadopoulos@comcast.net,<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas npapa@bu.edu,<br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas blah@gmail.com,<br>
+Apr 14, 2015 6:26:37 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:26:37 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@620065ca)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+SELECT first_name, email FROM Users WHERE first_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas| nicholas.papadopoulos@comcast.net</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas| npapa@bu.edu</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas| blah@gmail.com</a><br>
+Apr 14, 2015 6:29:07 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:29:07 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@2f354a1a)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+SELECT first_name, email FROM Users WHERE first_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas | nicholas.papadopoulos@comcast.net</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas | npapa@bu.edu</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas | blah@gmail.com</a><br>
+Apr 14, 2015 6:32:17 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:32:17 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@dbb073)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+SELECT first_name, last_name, email FROM Users WHERE first_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas Papadopoulos | nicholas.papadopoulos@comcast.net</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas Papadopoulos | npapa@bu.edu</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas Papadopoulos | blah@gmail.com</a><br>
+SELECT first_name, last_name, email FROM Users WHERE last_name = ? AND 1=1
+SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas Papadopoulos | nicholas.papadopoulos@comcast.net</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas Papadopoulos | npapa@bu.edu</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas Papadopoulos | blah@gmail.com</a><br>
