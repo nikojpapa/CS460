@@ -25,7 +25,7 @@
   if (!friendEmail.equals("")) {
 
     // Try to add friend by email
-    if (friendEmail == userEmail) {
+    if (friendEmail.equals(userEmail)) {
       err = "Cannot be friends with yourself";
     } else {
       boolean success = newFriendDao.create(friendEmail, userEmail );

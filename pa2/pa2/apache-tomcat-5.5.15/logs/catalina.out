@@ -2504,3 +2504,55 @@ SELECT first_name, last_name, email FROM Users WHERE first_name = ? AND 1=1
 SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas Papadopoulos | nicholas.papadopoulos@comcast.net</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas Papadopoulos | npapa@bu.edu</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas Papadopoulos | blah@gmail.com</a><br>
 SELECT first_name, last_name, email FROM Users WHERE last_name = ? AND 1=1
 SEARCH: <a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'nicholas.papadopoulos@comcast.net';">- Nicholas Papadopoulos | nicholas.papadopoulos@comcast.net</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'npapa@bu.edu';">- Nicholas Papadopoulos | npapa@bu.edu</a><br><a href='javascript:void(0);' onclick="document.getElementById('emailInput').value = 'blah@gmail.com';">- Nicholas Papadopoulos | blah@gmail.com</a><br>
+Apr 14, 2015 6:41:37 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:41:37 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@6bdea342)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 14, 2015 6:43:17 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:43:17 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@6efed938)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 14, 2015 6:43:37 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:43:37 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@3a9ae1ab)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 14, 2015 6:44:17 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:44:17 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@54e5a4b1)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+test@bu.edu == test@bu.edu
+Apr 14, 2015 6:45:47 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:45:47 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@6407072)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+test@bu.edu == test@bu.edu
+Email is different
+Apr 14, 2015 6:46:48 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 14, 2015 6:46:48 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@2f8d604f)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+SELECT first_name, last_name, email FROM Users WHERE first_name = ? AND 1=1

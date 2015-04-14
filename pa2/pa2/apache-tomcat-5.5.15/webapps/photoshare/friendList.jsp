@@ -20,25 +20,29 @@
    String search_results = "";
 
    NewFriendDao newFriendDao = new NewFriendDao();
+   String friendEmail = newFriendBean.getEmail();
    
-   if (!newFriendBean.getEmail().equals("")) {
+  if (!friendEmail.equals("")) {
 
-     // Try to add friend
-     String friendEmail = newFriendBean.getEmail();
-     boolean success = newFriendDao.create(friendEmail, userEmail );
-     if (success) {
-      addedFriend = true;
-      first_name = newFriendDao.getName(friendEmail, "first_name");
-      last_name = newFriendDao.getName(friendEmail, "last_name");
-     } else {
-       err = "Couldn't add friend (that friend may already be added)";
-     }
-   } else if (!newFriendBean.getFirst().equals("") || !newFriendBean.getLast().equals("")) {
-      search_results = newFriendDao.simpleSearch(newFriendBean.getFirst(), newFriendBean.getLast());
-      System.out.println("SEARCH: " + search_results);
-   }
+    // Try to add friend by email
+    if (friendEmail.equals(userEmail)) {
+      err = "Cannot be friends with yourself";
+    } else {
+      boolean success = newFriendDao.create(friendEmail, userEmail );
+      if (success) {
+        addedFriend = true;
+        first_name = newFriendDao.getName(friendEmail, "first_name");
+        last_name = newFriendDao.getName(friendEmail, "last_name");
+      } else {
+        err = "Couldn't add friend (that friend may already be added)";
+      }
+    }
+  } else if (!newFriendBean.getFirst().equals("") || !newFriendBean.getLast().equals("")) {
+    //search for friend
+    search_results = newFriendDao.simpleSearch(newFriendBean.getFirst(), newFriendBean.getLast());
+  }
 
-   String friend_list = newFriendDao.getFriendList(userEmail);
+  String friend_list = newFriendDao.getFriendList(userEmail);
 %>
 
 <% if (err != null) { %>
