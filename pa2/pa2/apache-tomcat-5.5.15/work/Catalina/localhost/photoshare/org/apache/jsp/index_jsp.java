@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import photoshare.Picture;
 import photoshare.PictureDao;
+import photoshare.AlbumDao;
 import photoshare.Rankings;
 import org.apache.commons.fileupload.FileUploadException;
 import java.util.List;
@@ -51,6 +52,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       photoshare.ImageUploadBean imageUploadBean = null;
       synchronized (_jspx_page_context) {
         imageUploadBean = (photoshare.ImageUploadBean) _jspx_page_context.getAttribute("imageUploadBean", PageContext.PAGE_SCOPE);
@@ -82,7 +84,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
     Rankings rankings = new Rankings();
     String ranks = rankings.getRankings();
-    System.out.print("RANKS: " + ranks);
 
       out.write('\n');
       out.print( ranks );
@@ -117,6 +118,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
  }
 
       out.write("\n");
+      out.write("\n");
+      out.write("<h2>My Albums</h2>\n");
+
+    AlbumDao albums = new AlbumDao();
+    String users_albums = albums.listAlbums(request.getUserPrincipal().getName());
+
+      out.write('\n');
+      out.print( users_albums );
       out.write("\n");
       out.write("\n");
       out.write("<h2>Existing pictures</h2>\n");

@@ -1,8 +1,9 @@
 <%--
-  Author: Giorgos Zervas <cs460tf@cs.bu.edu>
+  Author: Nicholas Papadopoulos <npapa@bu.edu>
 --%>
 <%@ page import="photoshare.Picture" %>
 <%@ page import="photoshare.PictureDao" %>
+<%@ page import="photoshare.AlbumDao" %>
 <%@ page import="photoshare.Rankings" %>
 <%@ page import="org.apache.commons.fileupload.FileUploadException" %>
 <%@ page import="java.util.List" %>
@@ -27,7 +28,6 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 <%
     Rankings rankings = new Rankings();
     String ranks = rankings.getRankings();
-    System.out.print("RANKS: " + ranks);
 %>
 <%= ranks %>
 
@@ -56,6 +56,12 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
     <% }
 %>
 
+<h2>My Albums</h2>
+<%
+    AlbumDao albums = new AlbumDao();
+    String users_albums = albums.listAlbums(request.getUserPrincipal().getName());
+%>
+<%= users_albums %>
 
 <h2>Existing pictures</h2>
 <table>
