@@ -22,7 +22,7 @@ public class Rankings {
 
 	private static final String DROP_PICS_COUNT = "DROP VIEW pics";
 
-	private static final String GET_RANKINGS = "SELECT p_first_name, p_last_name, p_count + c_count AS contribution FROM pics JOIN comms ON p_uid = c_uid ORDER BY contribution DESC";
+	private static final String GET_RANKINGS = "SELECT p_first_name, p_last_name, coalesce(p_count+c_count, p_count, c_count, 0) AS contribution FROM pics FULL OUTER JOIN comms ON p_uid = c_uid ORDER BY contribution DESC";
 
 	public String getRankings() {
 		PreparedStatement stmt = null;
@@ -50,7 +50,11 @@ public class Rankings {
 
 			for (int i = 1; i <= 10; i++) {
 				if (rs.next()) {
-					results += i + ") " + rs.getString(1) + " " + rs.getString(2) + " | " + rs.getString(3);
+					String contrib = rs.getString(3);
+					if (contrib == null) {
+						contrib = "0";
+					}
+					results += i + ") " + rs.getString(1) + " " + rs.getString(2) + " | " + contrib + "<br>";
 				}
 			}
 

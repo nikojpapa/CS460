@@ -16,12 +16,52 @@ public class PictureDao {
   private static final String LOAD_PICTURE_STMT = "SELECT " +
       "\"caption\", \"imgdata\", \"thumbdata\", \"size\", \"content_type\" FROM Pictures WHERE \"picture_id\" = ?";
 
+  private static final String DELETE_PICTURE_STMT = "DELETE FROM Pictures WHERE picture_id = ?";
+
   private static final String SAVE_PICTURE_STMT = "INSERT INTO " +
       "Pictures (\"album_id\", \"caption\", \"imgdata\", \"thumbdata\", \"size\", \"content_type\") VALUES (?, ?, ?, ?, ?, ?)";
 
   private static final String ALL_PICTURE_IDS_STMT = "SELECT \"picture_id\" FROM Pictures ORDER BY \"picture_id\" DESC";
 
   private static final String ALBUM_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures WHERE album_id = ? ORDER BY picture_id DESC";
+
+  public boolean delete(int pid) {
+	  	PreparedStatement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		
+		List<Integer> picturesIds = new ArrayList<Integer>();
+		try {
+			conn = DbConnection.getConnection();
+			stmt = conn.prepareStatement(DELETE_PICTURE_STMT);
+			stmt.setInt(1, pid);
+			stmt.executeUpdate();
+
+			stmt.close();
+			stmt = null;
+
+			conn.close();
+			conn = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			if (rs != null) {
+				try { rs.close(); } catch (SQLException e) { ; }
+				rs = null;
+			}
+			if (stmt != null) {
+				try { stmt.close(); } catch (SQLException e) { ; }
+				stmt = null;
+			}
+			if (conn != null) {
+				try { conn.close(); } catch (SQLException e) { ; }
+				conn = null;
+			}
+		}
+
+		return true;
+  }
 
   public Picture load(int id) {
 		PreparedStatement stmt = null;

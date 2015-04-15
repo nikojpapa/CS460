@@ -32,12 +32,22 @@
     <tr>
         <%
             PictureDao pictures = new PictureDao();
+            String pid = request.getParameter("delete_pic");
+            if (!(pid == null)) {
+              pictures.delete(Integer.parseInt(pid));
+            }
             List<Integer> pictureIds = pictures.albumPictureIds(aid);
             for (Integer pictureId : pictureIds) {
         %>
         <td><a href="/photoshare/img?picture_id=<%= pictureId %>">
             <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
-        </a>
+        </a><br>
+        <form action="albums.jsp" method="post">
+          <input type="hidden" name="album_name" value=<%=album_name %> />
+          <input type="hidden" name="deleted" value="false"/>
+          <input type="hidden" name="delete_pic" value=<%= pictureId %> />
+          <input type="submit" value="Delete Picture"/>
+        </form>
         </td>
         <%
             }
