@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import photoshare.Picture;
 import photoshare.PictureDao;
+import photoshare.Rankings;
 import org.apache.commons.fileupload.FileUploadException;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       photoshare.ImageUploadBean imageUploadBean = null;
       synchronized (_jspx_page_context) {
         imageUploadBean = (photoshare.ImageUploadBean) _jspx_page_context.getAttribute("imageUploadBean", PageContext.PAGE_SCOPE);
@@ -67,7 +69,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<head><title>Photo Sharing</title></head>\n");
       out.write("\n");
       out.write("<body>\n");
-      out.write("<h1>A skeleton photo sharing application for CS460/660 PA1</h1>\n");
+      out.write("<!-- <h1>A skeleton photo sharing application for CS460/660 PA1</h1> -->\n");
+      out.write("<h1>A photo sharing application for CS460/660 PA2</h1>\n");
       out.write("\n");
       out.write("Hello <b><code>");
       out.print( request.getUserPrincipal().getName()  );
@@ -75,16 +78,27 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<a href=\"/photoshare/logout.jsp\">log out</a><br><br>\n");
       out.write("Click here to <a href=\"/photoshare/friendList.jsp\"> show friends list</a>\n");
       out.write("\n");
+      out.write("<h2>Rankings</h2>\n");
+
+    Rankings rankings = new Rankings();
+    String ranks = rankings.getRankings();
+
+      out.write('\n');
+      out.print( ranks );
+      out.write("\n");
+      out.write("\n");
       out.write("<h2>Upload a new picture</h2>\n");
       out.write("\n");
       out.write("<form action=\"index.jsp\" enctype=\"multipart/form-data\" method=\"post\">\n");
-      out.write("    Filename: <input type=\"file\" name=\"filename\"/>\n");
+      out.write("    <p>Filename: <input type=\"file\" name=\"filename\"/></p>\n");
+      out.write("    <p>Album: <input type=\"text\" name=\"album_name\"/></p>\n");
       out.write("    <input type=\"submit\" value=\"Upload\"/><br/>\n");
       out.write("</form>\n");
       out.write("\n");
 
     PictureDao pictureDao = new PictureDao();
-    try {
+    String err = "";
+    try { 
         Picture picture = imageUploadBean.upload(request);
         if (picture != null) {
             pictureDao.save(picture);
@@ -93,6 +107,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         e.printStackTrace();
     }
 
+    if (!err.equals("")) { 
+      out.write("\n");
+      out.write("        <p><font color=red><b>Error: ");
+      out.print( err );
+      out.write("</b></font></p>\n");
+      out.write("    ");
+ }
+
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<h2>Existing pictures</h2>\n");

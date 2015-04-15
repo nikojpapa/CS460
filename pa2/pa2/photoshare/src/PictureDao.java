@@ -17,7 +17,7 @@ public class PictureDao {
       "\"caption\", \"imgdata\", \"thumbdata\", \"size\", \"content_type\" FROM Pictures WHERE \"picture_id\" = ?";
 
   private static final String SAVE_PICTURE_STMT = "INSERT INTO " +
-      "Pictures (\"caption\", \"imgdata\", \"thumbdata\", \"size\", \"content_type\") VALUES (?, ?, ?, ?, ?)";
+      "Pictures (\"album_id\", \"caption\", \"imgdata\", \"thumbdata\", \"size\", \"content_type\") VALUES (?, ?, ?, ?, ?, ?)";
 
   private static final String ALL_PICTURE_IDS_STMT = "SELECT \"picture_id\" FROM Pictures ORDER BY \"picture_id\" DESC";
 
@@ -76,11 +76,12 @@ public class PictureDao {
 		try {
 			conn = DbConnection.getConnection();
 			stmt = conn.prepareStatement(SAVE_PICTURE_STMT);
-			stmt.setString(1, picture.getCaption());
-			stmt.setBytes(2, picture.getData());
-			stmt.setBytes(3, picture.getThumbdata());
-			stmt.setLong(4, picture.getSize());
-			stmt.setString(5, picture.getContentType());
+			stmt.setInt(1, picture.getAid());
+			stmt.setString(2, picture.getCaption());
+			stmt.setBytes(3, picture.getData());
+			stmt.setBytes(4, picture.getThumbdata());
+			stmt.setLong(5, picture.getSize());
+			stmt.setString(6, picture.getContentType());
 			stmt.executeUpdate();
 			
 			stmt.close();

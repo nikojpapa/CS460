@@ -26,6 +26,14 @@ public class ImageUploadBean {
         if (fileItem.isFormField()) {
           if (fileItem.getFieldName().equals("caption")) {
             picture.setCaption(fileItem.getString());
+          } else if (fileItem.getFieldName().equals("album_name")) {
+            AlbumDao album = new AlbumDao();
+            int aid = album.getAID(request.getUserPrincipal().getName(), fileItem.getString());
+            if (aid > 0) {
+              picture.setAid(aid);
+            } else {
+              return null;
+            }
           }
         } else {
           if (fileItem.getFieldName().equals("filename")) {

@@ -14,6 +14,7 @@ import java.io.IOException;
  */
 public class Picture {
   private int id;
+  private int aid;
   private String caption = "";
   private String contentType;
   private long size;
@@ -28,8 +29,16 @@ public class Picture {
     return id;
   }
 
+  public int getAid() {
+    return aid;
+  }
+
   public void setId(int id) {
     this.id = id;
+  }
+
+  public void setAid(int aid) {
+    this.aid = aid;
   }
 
   public String getCaption() {

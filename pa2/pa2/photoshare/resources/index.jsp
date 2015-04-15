@@ -3,6 +3,7 @@
 --%>
 <%@ page import="photoshare.Picture" %>
 <%@ page import="photoshare.PictureDao" %>
+<%@ page import="photoshare.Rankings" %>
 <%@ page import="org.apache.commons.fileupload.FileUploadException" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,22 +16,32 @@
 <head><title>Photo Sharing</title></head>
 
 <body>
-<h1>A skeleton photo sharing application for CS460/660 PA1</h1>
+<!-- <h1>A skeleton photo sharing application for CS460/660 PA1</h1> -->
+<h1>A photo sharing application for CS460/660 PA2</h1>
 
 Hello <b><code><%= request.getUserPrincipal().getName()  %></code></b>, click here to
 <a href="/photoshare/logout.jsp">log out</a><br><br>
 Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 
+<h2>Rankings</h2>
+<%
+    Rankings rankings = new Rankings();
+    String ranks = rankings.getRankings();
+%>
+<%= ranks %>
+
 <h2>Upload a new picture</h2>
 
 <form action="index.jsp" enctype="multipart/form-data" method="post">
-    Filename: <input type="file" name="filename"/>
+    <p>Filename: <input type="file" name="filename"/></p>
+    <p>Album: <input type="text" name="album_name"/></p>
     <input type="submit" value="Upload"/><br/>
 </form>
 
 <%
     PictureDao pictureDao = new PictureDao();
-    try {
+    String err = "";
+    try { 
         Picture picture = imageUploadBean.upload(request);
         if (picture != null) {
             pictureDao.save(picture);
@@ -38,7 +49,12 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
     } catch (FileUploadException e) {
         e.printStackTrace();
     }
+
+    if (!err.equals("")) { %>
+        <p><font color=red><b>Error: <%= err %></b></font></p>
+    <% }
 %>
+
 
 <h2>Existing pictures</h2>
 <table>
