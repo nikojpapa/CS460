@@ -82,6 +82,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
     Rankings rankings = new Rankings();
     String ranks = rankings.getRankings();
+    System.out.print("RANKS: " + ranks);
 
       out.write('\n');
       out.print( ranks );

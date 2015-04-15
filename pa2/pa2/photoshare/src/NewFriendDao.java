@@ -41,7 +41,6 @@ public class NewFriendDao {
 
     String simple_search_stmt = "SELECT " +
       "first_name, last_name, email FROM Users WHERE " + search_conditions + "1=1";
-    System.out.println(simple_search_stmt);
 
     PreparedStatement stmt = null;
     Connection conn = null;

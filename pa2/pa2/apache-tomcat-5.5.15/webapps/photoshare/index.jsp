@@ -27,6 +27,7 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 <%
     Rankings rankings = new Rankings();
     String ranks = rankings.getRankings();
+    System.out.print("RANKS: " + ranks);
 %>
 <%= ranks %>
 

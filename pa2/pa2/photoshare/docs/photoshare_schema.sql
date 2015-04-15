@@ -104,7 +104,7 @@ CREATE TABLE Comments
 (
   cid int4 NOT NULL DEFAULT nextval('Comments_comment_id_seq') PRIMARY KEY,
   comment_text varchar(255),
-  comment_date DATE,
+  comment_date varchar(255),
   uid int4 NOT NULL REFERENCES Users(uid) ON DELETE CASCADE,
   pid int4 NOT NULL REFERENCES Pictures(picture_id) ON DELETE CASCADE
 );
