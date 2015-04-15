@@ -1,3 +1,5 @@
+<%@ page import="photoshare.PictureDao" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head><title>Photoshare Login</title></head>
@@ -15,5 +17,24 @@
     </table>
 </form>
 <a href='/photoshare/newuser.jsp'>Register</a>
+
+<h2>Existing pictures</h2>
+<table>
+    <tr>
+        <%
+	        PictureDao pictureDao = new PictureDao();
+            List<Integer> pictureIds = pictureDao.allPicturesIds();
+            for (Integer pictureId : pictureIds) {
+        %>
+        <td><a href="/photoshare/img?picture_id=<%= pictureId %>">
+            <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
+        </a>
+        </td>
+        <%
+            }
+        %>
+    </tr>
+</table>
+
 </body>
 </html>

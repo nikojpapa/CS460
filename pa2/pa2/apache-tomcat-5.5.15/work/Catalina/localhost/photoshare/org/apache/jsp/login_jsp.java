@@ -3,6 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import photoshare.PictureDao;
+import java.util.List;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -40,6 +42,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
 
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("<head><title>Photoshare Login</title></head>\n");
       out.write("\n");
@@ -56,6 +60,33 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </table>\n");
       out.write("</form>\n");
       out.write("<a href='/photoshare/newuser.jsp'>Register</a>\n");
+      out.write("\n");
+      out.write("<h2>Existing pictures</h2>\n");
+      out.write("<table>\n");
+      out.write("    <tr>\n");
+      out.write("        ");
+
+	        PictureDao pictureDao = new PictureDao();
+            List<Integer> pictureIds = pictureDao.allPicturesIds();
+            for (Integer pictureId : pictureIds) {
+        
+      out.write("\n");
+      out.write("        <td><a href=\"/photoshare/img?picture_id=");
+      out.print( pictureId );
+      out.write("\">\n");
+      out.write("            <img src=\"/photoshare/img?t=1&picture_id=");
+      out.print( pictureId );
+      out.write("\"/>\n");
+      out.write("        </a>\n");
+      out.write("        </td>\n");
+      out.write("        ");
+
+            }
+        
+      out.write("\n");
+      out.write("    </tr>\n");
+      out.write("</table>\n");
+      out.write("\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
