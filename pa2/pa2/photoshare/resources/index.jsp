@@ -25,11 +25,7 @@ Hello <b><code><%= request.getUserPrincipal().getName()  %></code></b>, click he
 Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 
 <h2>Rankings</h2>
-<%
-    Rankings rankings = new Rankings();
-    String ranks = rankings.getRankings();
-%>
-<%= ranks %>
+<p id="rankings"></p>
 
 <h2>Upload a new picture</h2>
 
@@ -55,6 +51,11 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
         <p><font color=red><b>Error: <%= err %></b></font></p>
     <% }
 %>
+<%
+    Rankings rankings = new Rankings();
+    String ranks = rankings.getRankings();
+%>
+<%="<script>document.getElementById('rankings').innerHTML = '" + ranks + "'</script>" %>
 
 <h2>My Albums</h2>
 <%
