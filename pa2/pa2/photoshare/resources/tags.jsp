@@ -35,7 +35,7 @@
             if (!(pid == null)) {
               pictures.delete(Integer.parseInt(pid));
             }
-            List<Integer> pictureIds = pictures.tagPictureIds(tid);
+            List<Integer> pictureIds = pictures.tagPictureIds(tag_name);
             for (Integer pictureId : pictureIds) {
         %>
         <td><a href="/photoshare/img?picture_id=<%= pictureId %>">

@@ -21,7 +21,7 @@ public class TagDao {
 
 	private static final String GET_TID_STMT = "SELECT tid FROM Tags WHERE tag_name = ?";
 
-    private static final String LIST_TAGS_STMT = "SELECT tag_name FROM Tags t, (" + GET_UID_STMT + ") u, Albums a, Pictures p WHERE u.uid = a.uid AND a.aid = p.album_id AND p.picture_id = t.pid ORDER BY tag_name";
+    private static final String LIST_TAGS_STMT = "SELECT DISTINCT tag_name FROM Tags t, (" + GET_UID_STMT + ") u, Albums a, Pictures p WHERE u.uid = a.uid AND a.aid = p.album_id AND p.picture_id = t.pid ORDER BY tag_name";
 
     public boolean deleteTag(int tid) {
     	PreparedStatement stmt = null;

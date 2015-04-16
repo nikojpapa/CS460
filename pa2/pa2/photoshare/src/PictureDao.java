@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * A data access object (DAO) to handle picture objects
  *
- * @author G. Zervas <cs460tf@bu.edu>
+ * @author Nicholas Papadopoulos <npapa@bu.edu>
  */
 public class PictureDao {
   private static final String LOAD_PICTURE_STMT = "SELECT " +
@@ -25,7 +25,7 @@ public class PictureDao {
 
   private static final String ALBUM_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures WHERE album_id = ? ORDER BY picture_id DESC";
 
-  private static final String TAG_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures p, Tags t WHERE t.tid = ? AND p.picture_id = t.pid ORDER BY picture_id DESC";
+  private static final String TAG_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures p, Tags t WHERE t.tag_name = ? AND p.picture_id = t.pid ORDER BY picture_id DESC";
 
   private static final String PIC_TAGS_STMT = "SELECT tag_name FROM Tags t WHERE t.pid = ? ORDER BY tag_name DESC";
 
@@ -199,7 +199,7 @@ public class PictureDao {
 		}
 	}
 
-	public List<Integer> tagPictureIds(int tid) {
+	public List<Integer> tagPictureIds(String tag_name) {
 		PreparedStatement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
@@ -208,7 +208,7 @@ public class PictureDao {
 		try {
 			conn = DbConnection.getConnection();
 			stmt = conn.prepareStatement(TAG_PICTURE_IDS_STMT);
-			stmt.setInt(1, tid);
+			stmt.setString(1, tag_name);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				picturesIds.add(rs.getInt(1));
