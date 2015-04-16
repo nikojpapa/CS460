@@ -12,26 +12,26 @@ import java.util.List;
  *
  * @author G. Zervas <cs460tf@bu.edu>
  */
-public class AlbumDao {
-    private static final String ADD_ALBUM_STMT = "INSERT INTO Albums (album_name, uid) VALUES (?, ?)";
+public class TagDao {
+    private static final String ADD_TAG_STMT = "INSERT INTO Tags (tag_name, pid) VALUES (?, ?)";
 
-    private static final String DELETE_ALBUM_STMT = "DELETE FROM Albums WHERE aid = ?";
+    private static final String DELETE_TAG_STMT = "DELETE FROM Tags WHERE tid = ?";
 
 	private static final String GET_UID_STMT = "SELECT uid FROM Users WHERE email = ?";
 
- 	private static final String GET_AID_STMT = "SELECT aid FROM Albums a, (" + GET_UID_STMT + ") u WHERE a.album_name = ? AND u.uid = a.uid";
+	private static final String GET_TID_STMT = "SELECT tid FROM Tags WHERE tag_name = ?";
 
-    private static final String LIST_ALBUMS_STMT = "SELECT album_name FROM Albums a, (" + GET_UID_STMT + ") u WHERE u.uid = a.uid ORDER BY album_name";
+    private static final String LIST_TAGS_STMT = "SELECT tag_name FROM Tags t, (" + GET_UID_STMT + ") u, Albums a, Pictures p WHERE u.uid = a.uid AND a.aid = p.album_id AND p.picture_id = t.pid ORDER BY tag_name";
 
-    public boolean deleteAlbum(int aid) {
+    public boolean deleteTag(int tid) {
     	PreparedStatement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
 
 	    try {
 			conn = DbConnection.getConnection();
-			stmt = conn.prepareStatement(DELETE_ALBUM_STMT);
-			stmt.setInt(1, aid);
+			stmt = conn.prepareStatement(DELETE_TAG_STMT);
+			stmt.setInt(1, tid);
 			stmt.executeUpdate();
 			
 			stmt.close();
@@ -60,14 +60,14 @@ public class AlbumDao {
 		}
     }
 
-    public String listAlbums(String userEmail) {
+    public String listTags(String userEmail) {
     	PreparedStatement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
 
 	    try {
 			conn = DbConnection.getConnection();
-			stmt = conn.prepareStatement(LIST_ALBUMS_STMT);
+			stmt = conn.prepareStatement(LIST_TAGS_STMT);
 			stmt.setString(1, userEmail);
 			rs = stmt.executeQuery();
 
@@ -75,7 +75,7 @@ public class AlbumDao {
 			
 			while (rs.next()) {
 				String name = rs.getString(1);
-				name_list += "<p><a href='/photoshare/albums.jsp?album_name=" + name + "&deleted=false'>" + name + "</a></p>";
+				name_list += "<p><a href='/photoshare/tags.jsp?tag_name=" + name + "&deleted=false'>" + name + "</a></p>";
 			}
 
 			rs.close();
@@ -107,9 +107,9 @@ public class AlbumDao {
 		}
     }
 
-    public boolean addAlbum(String name, String userEmail) {
-    	if (name.equals("")) {
-    		//must specify album
+    public boolean addTag(String tag_name, int pid) {
+    	if (tag_name.equals("")) {
+    		//must specify tag
     		return false;
     	}
 
@@ -119,24 +119,10 @@ public class AlbumDao {
 
 	    try {
 			conn = DbConnection.getConnection();
-			stmt = conn.prepareStatement(GET_UID_STMT);
-			stmt.setString(1, userEmail);
-			rs = stmt.executeQuery();
-			
-			if (!rs.next()) {
-				//should never happen
-				return false;
-			}
-
-			int uid = rs.getInt(1);
-
-			stmt = conn.prepareStatement(ADD_ALBUM_STMT);
-			stmt.setString(1, name);
-			stmt.setInt(2, uid);
+			stmt = conn.prepareStatement(ADD_TAG_STMT);
+			stmt.setString(1, tag_name);
+			stmt.setInt(2, pid);
 			stmt.executeUpdate();
-
-			rs.close();
-			rs = null;
 			
 			stmt.close();
 			stmt = null;
@@ -164,7 +150,7 @@ public class AlbumDao {
 		}
     }
 
- 	public int getAID(String userEmail, String name) {
+ 	public int getTID(String tag_name) {
  		PreparedStatement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
@@ -173,24 +159,13 @@ public class AlbumDao {
 
 	    try {
 			conn = DbConnection.getConnection();
-			stmt = conn.prepareStatement(GET_AID_STMT);
-			stmt.setString(1, userEmail);
-			stmt.setString(2, name);
+			stmt = conn.prepareStatement(GET_TID_STMT);
+			stmt.setString(1, tag_name);
 			rs = stmt.executeQuery();
 			
 			if (!rs.next()) {
-				boolean success = addAlbum(name, userEmail);
-				if (!success) {
-					//album could not be added
-					return -1;
-				} else {
-					//get the new album id
-					rs = stmt.executeQuery();
-					if (!rs.next()) {
-						//if no album name entered
-						return -1;
-					}
-				}
+				//tag does not exist
+				return -1;
 			}
 
 			id = rs.getInt(1);

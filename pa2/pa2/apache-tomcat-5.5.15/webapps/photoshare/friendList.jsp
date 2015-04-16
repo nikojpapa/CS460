@@ -1,5 +1,5 @@
 <%--
-  Author: Giorgos Zervas <cs460tf@cs.bu.edu>
+  Author: Nicholas Papadopoulos <npapa@bu.edu>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="photoshare.NewFriendDao" %>

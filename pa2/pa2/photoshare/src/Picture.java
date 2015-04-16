@@ -20,6 +20,7 @@ public class Picture {
   private long size;
   private byte[] data;
   private byte[] thumbdata;
+  private String tags = "";
   private static final int THUMBNAIL_WIDTH = 80;
 
   public Picture() {
@@ -29,8 +30,16 @@ public class Picture {
     return id;
   }
 
+  public String getTags() {
+    return tags;
+  }
+
   public int getAid() {
     return aid;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
   }
 
   public void setId(int id) {

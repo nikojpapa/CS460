@@ -25,6 +25,59 @@ public class PictureDao {
 
   private static final String ALBUM_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures WHERE album_id = ? ORDER BY picture_id DESC";
 
+  private static final String TAG_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures p, Tags t WHERE t.tid = ? AND p.picture_id = t.pid ORDER BY picture_id DESC";
+
+  private static final String PIC_TAGS_STMT = "SELECT tag_name FROM Tags t WHERE t.pid = ? ORDER BY tag_name DESC";
+
+  private static final String GET_UID_STMT = "SELECT uid FROM Users u, Albums a, Pictures p WHERE p.picture_id = ? AND p.album_id = a.aid AND a.uid = u.uid";
+
+
+  public String listTags(int pid) {
+  	PreparedStatement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		
+		List<Integer> picturesIds = new ArrayList<Integer>();
+		try {
+			conn = DbConnection.getConnection();
+			stmt = conn.prepareStatement(PIC_TAGS_STMT);
+			stmt.setInt(1, pid);
+			rs = stmt.executeQuery();
+
+			String list = "";
+			while (rs.next()) {
+				list += rs.getString(1) + ", ";
+			}
+
+			rs.close();
+			rs = null;
+
+			stmt.close();
+			stmt = null;
+
+			conn.close();
+			conn = null;
+
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			if (rs != null) {
+				try { rs.close(); } catch (SQLException e) { ; }
+				rs = null;
+			}
+			if (stmt != null) {
+				try { stmt.close(); } catch (SQLException e) { ; }
+				stmt = null;
+			}
+			if (conn != null) {
+				try { conn.close(); } catch (SQLException e) { ; }
+				conn = null;
+			}
+		}
+  }
+
   public boolean delete(int pid) {
 	  	PreparedStatement stmt = null;
 		Connection conn = null;
@@ -144,6 +197,50 @@ public class PictureDao {
 				conn = null;
 			}
 		}
+	}
+
+	public List<Integer> tagPictureIds(int tid) {
+		PreparedStatement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		
+		List<Integer> picturesIds = new ArrayList<Integer>();
+		try {
+			conn = DbConnection.getConnection();
+			stmt = conn.prepareStatement(TAG_PICTURE_IDS_STMT);
+			stmt.setInt(1, tid);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				picturesIds.add(rs.getInt(1));
+			}
+
+			rs.close();
+			rs = null;
+
+			stmt.close();
+			stmt = null;
+
+			conn.close();
+			conn = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			if (rs != null) {
+				try { rs.close(); } catch (SQLException e) { ; }
+				rs = null;
+			}
+			if (stmt != null) {
+				try { stmt.close(); } catch (SQLException e) { ; }
+				stmt = null;
+			}
+			if (conn != null) {
+				try { conn.close(); } catch (SQLException e) { ; }
+				conn = null;
+			}
+		}
+
+		return picturesIds;
 	}
 
 	public List<Integer> albumPictureIds(int aid) {

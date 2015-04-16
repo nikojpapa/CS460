@@ -24,9 +24,10 @@ public class ImageUploadBean {
 
       for (FileItem fileItem : fileItems) {
         if (fileItem.isFormField()) {
-          if (fileItem.getFieldName().equals("caption")) {
+          String fieldName = fileItem.getFieldName();
+          if (fieldName.equals("caption")) {
             picture.setCaption(fileItem.getString());
-          } else if (fileItem.getFieldName().equals("album_name")) {
+          } else if (fieldName.equals("album_name")) {
             AlbumDao album = new AlbumDao();
             int aid = album.getAID(request.getUserPrincipal().getName(), fileItem.getString());
             if (aid > 0) {
@@ -34,6 +35,10 @@ public class ImageUploadBean {
             } else {
               return null;
             }
+          } else if (fieldName.equals("tags")) {
+            TagDao tagDao = new TagDao();
+            picture.setTags(fileItem.getString());
+
           }
         } else {
           if (fileItem.getFieldName().equals("filename")) {
