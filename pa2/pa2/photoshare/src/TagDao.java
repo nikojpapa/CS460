@@ -23,6 +23,54 @@ public class TagDao {
 
     private static final String LIST_TAGS_STMT = "SELECT DISTINCT tag_name FROM Tags t, (" + GET_UID_STMT + ") u, Albums a, Pictures p WHERE u.uid = a.uid AND a.aid = p.album_id AND p.picture_id = t.pid ORDER BY tag_name";
 
+    private static final String MOST_POPULAR_STMT = "SELECT DISTINCT tag_name, count(p.picture_id) AS count FROM Tags t, Pictures p WHERE p.picture_id = t.pid GROUP BY tag_name ORDER BY count DESC";
+
+    public String mostPopular() {
+    	PreparedStatement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+
+	    try {
+			conn = DbConnection.getConnection();
+			stmt = conn.prepareStatement(MOST_POPULAR_STMT);
+			rs = stmt.executeQuery();
+
+			String list = "";
+			
+			while (rs.next()) {
+				String name = rs.getString(1);
+				list += "<p><a href='/photoshare/tags.jsp?tag_name=" + name + "&deleted=false&all=true'>" + name + "</a></p>";
+			}
+
+			rs.close();
+			rs = null;
+			
+			stmt.close();
+			stmt = null;
+				
+			conn.close();
+			conn = null;
+
+			return list;
+	    } catch (SQLException e) {
+	    	e.printStackTrace();
+	    	throw new RuntimeException(e);
+		} finally {
+			if (rs != null) {
+				try { rs.close(); } catch (SQLException e) { ; }
+				rs = null;
+			}
+			if (stmt != null) {
+				try { stmt.close(); } catch (SQLException e) { ; }
+				stmt = null;
+			}
+			if (conn != null) {
+				try { conn.close(); } catch (SQLException e) { ; }
+				conn = null;
+			}
+		}
+    }
+
     public boolean deleteTag(int tid) {
     	PreparedStatement stmt = null;
 		Connection conn = null;

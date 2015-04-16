@@ -49,7 +49,7 @@
         <%
             PictureDao pictures = new PictureDao();
             String pid = request.getParameter("delete_pic");
-            if (!(pid == null)) {
+            if (!(pid == null) && (all == null)) {
               pictures.delete(Integer.parseInt(pid));
             }
             List<Integer> pictureIds = null;
@@ -63,7 +63,7 @@
         <td><a href="/photoshare/img?picture_id=<%= pictureId %>">
             <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
         </a><br>
-        <form action="tags.jsp" method="post">
+        <form class="delete_pic" action="tags.jsp" method="post">
           <input type="hidden" name="tag_name" value=<%=tag_name %> />
           <input type="hidden" name="deleted" value="false"/>
           <input type="hidden" name="delete_pic" value=<%= pictureId %> />
@@ -83,6 +83,15 @@ if (request.getParameter("deleted").equals("true")) { %>
   document.getElementById("delete_form").remove();
   document.getElementById("pics").remove();
   document.getElementById("page_head").innerText = "Tag Deleted";
+  </script>
+<% }
+if (!(all == null)) { %>
+  <script>
+  document.getElementById("delete_form").remove();
+  var delete_buttons = document.getElementsByClassName("delete_pic");
+  while(delete_buttons[0]) {
+    delete_buttons[0].remove();
+  }
   </script>
 <% } %>
 

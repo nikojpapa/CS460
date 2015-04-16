@@ -68,7 +68,7 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 <%="<script>document.getElementById('rankings').innerHTML = '" + ranks + "'</script>" %>
 
 <table>
-    <th>My Albums</th><th>My Tags</th>
+    <th>My Albums</th><th></th><th>My Tags</th><th></th><th>Most Popular Tags</th>
     <tr>
         <td>
             <%
@@ -76,12 +76,14 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
                 String users_albums = albums.listAlbums(userEmail);
             %>
             <%= users_albums %>
-        </td><td>
+        </td><td/><td>
             <%
                 TagDao tags = new TagDao();
                 String users_tags = tags.listTags(userEmail);
             %>
             <%= users_tags %>
+        </td><td/><td>
+            <%= tags.mostPopular() %>
         </td>
     </tr>
 </table>
