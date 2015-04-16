@@ -25,7 +25,10 @@ public class PictureDao {
 
   private static final String ALBUM_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures WHERE album_id = ? ORDER BY picture_id DESC";
 
-  private static final String TAG_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures p, Tags t WHERE t.tag_name = ? AND p.picture_id = t.pid ORDER BY picture_id DESC";
+  private static final String TAG_PICTURE_IDS_STMT = "SELECT picture_id FROM Users u, Albums a, Pictures p, Tags t WHERE t.tag_name = ? AND p.picture_id = t.pid AND u.email = ? AND u.uid = a.uid AND a.aid = p.album_id ORDER BY picture_id DESC";
+
+  private static final String TAG_ALL_PICTURE_IDS_STMT = "SELECT picture_id FROM Pictures p, Tags t WHERE t.tag_name = ? AND p.picture_id = t.pid ORDER BY picture_id DESC";
+
 
   private static final String PIC_TAGS_STMT = "SELECT tag_name FROM Tags t WHERE t.pid = ? ORDER BY tag_name DESC";
 
@@ -199,7 +202,7 @@ public class PictureDao {
 		}
 	}
 
-	public List<Integer> tagPictureIds(String tag_name) {
+	public List<Integer> tagPictureIds(String tag_name,  String userEmail) {
 		PreparedStatement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
@@ -207,8 +210,18 @@ public class PictureDao {
 		List<Integer> picturesIds = new ArrayList<Integer>();
 		try {
 			conn = DbConnection.getConnection();
-			stmt = conn.prepareStatement(TAG_PICTURE_IDS_STMT);
+			String stmtStr = "";
+			if (userEmail.equals("all")) {
+				stmtStr = TAG_ALL_PICTURE_IDS_STMT;
+			} else {
+				stmtStr = TAG_PICTURE_IDS_STMT;
+			}
+			System.out.println(stmtStr);
+			stmt = conn.prepareStatement(stmtStr);
 			stmt.setString(1, tag_name);
+			if (!userEmail.equals("all")) {
+				stmt.setString(2, userEmail);
+			}
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				picturesIds.add(rs.getInt(1));

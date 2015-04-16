@@ -54,6 +54,7 @@ public final class tags_jsp extends org.apache.jasper.runtime.HttpJspBase
   String url = "tags.jsp?tag_name=" + tag_name;
   String userEmail = request.getUserPrincipal().getName();
   int tid = tag.getTID(tag_name);
+  String all = request.getParameter("all");
 
       out.write("\n");
       out.write("\n");
@@ -70,12 +71,37 @@ public final class tags_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(tag_name );
       out.write(" />\n");
       out.write("  <input type=\"hidden\" name=\"deleted\" value=\"true\"/>\n");
+      out.write("  <input type=\"hidden\" name=\"all\" value=");
+      out.print(all );
+      out.write(" />\n");
       out.write("  <p>Click here to <input type=\"submit\" value=\"Delete Tag\"/></p>\n");
       out.write("</form>\n");
       out.write("\n");
       out.write("<h2 id=\"page_head\">");
       out.print(tag_name );
       out.write(" Pictures</h2>\n");
+ if (all == null) { 
+      out.write("\n");
+      out.write("  <form action=\"tags.jsp\" method=\"post\">\n");
+      out.write("    <input type=\"hidden\" name=\"tag_name\" value=");
+      out.print(tag_name );
+      out.write(" />\n");
+      out.write("    <input type=\"hidden\" name=\"deleted\" value=\"false\"/>\n");
+      out.write("    <input type=\"hidden\" name=\"all\" value=\"true\"/>\n");
+      out.write("    <input type=\"submit\" value=\"View All Photos\"/>\n");
+      out.write("  </form>\n");
+ } else { 
+      out.write("\n");
+      out.write("  <form action=\"tags.jsp\" method=\"post\">\n");
+      out.write("    <input type=\"hidden\" name=\"tag_name\" value=");
+      out.print(tag_name );
+      out.write(" />\n");
+      out.write("    <input type=\"hidden\" name=\"deleted\" value=\"false\"/>\n");
+      out.write("    <input type=\"submit\" value=\"View My Photos\"/>\n");
+      out.write("  </form>\n");
+ } 
+      out.write("\n");
+      out.write("\n");
       out.write("<table id=\"pics\">\n");
       out.write("    <tr>\n");
       out.write("        ");
@@ -85,7 +111,12 @@ public final class tags_jsp extends org.apache.jasper.runtime.HttpJspBase
             if (!(pid == null)) {
               pictures.delete(Integer.parseInt(pid));
             }
-            List<Integer> pictureIds = pictures.tagPictureIds(tag_name);
+            List<Integer> pictureIds = null;
+            if (!(all == null)) {
+              pictureIds = pictures.tagPictureIds(tag_name, "all");
+            } else {
+              pictureIds = pictures.tagPictureIds(tag_name, userEmail);
+            }
             for (Integer pictureId : pictureIds) {
         
       out.write("\n");
