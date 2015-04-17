@@ -6013,3 +6013,498 @@ AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@235
    LogAbandoned: true
    RemoveAbandoned: true
    RemoveAbandonedTimeout: 10
+Apr 16, 2015 10:11:31 PM org.apache.coyote.http11.Http11BaseProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-9545
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Apr 16, 2015 10:11:32 PM org.apache.coyote.http11.Http11BaseProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-9545
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Apr 17, 2015 10:13:23 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Apr 17, 2015 10:13:23 AM org.apache.coyote.http11.Http11BaseProtocol init
+INFO: Initializing Coyote HTTP/1.1 on http-9545
+Apr 17, 2015 10:13:23 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 474 ms
+Apr 17, 2015 10:13:23 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Apr 17, 2015 10:13:23 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/5.5.15
+Apr 17, 2015 10:13:23 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Apr 17, 2015 10:13:24 AM org.apache.coyote.http11.Http11BaseProtocol start
+INFO: Starting Coyote HTTP/1.1 on http-9545
+Apr 17, 2015 10:13:24 AM org.apache.catalina.storeconfig.StoreLoader load
+INFO: Find registry server-registry.xml at classpath resource
+Apr 17, 2015 10:13:24 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 974 ms
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@181b7c76)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 17, 2015 10:14:34 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:14:34 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@1819ccba)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 17, 2015 10:15:34 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:15:34 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@4463a1ae)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 17, 2015 10:16:14 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:16:14 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@6af2da21)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 17, 2015 10:17:04 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:17:04 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@10e9df)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+org.postgresql.util.PSQLException: ERROR: insert or update on table "comments" violates foreign key constraint "comments_uid_fkey"
+  Detail: Key (uid)=(-1) is not present in table "users".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.CommentDao.addComment(CommentDao.java:115)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:30:34 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:30:34 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@f7f0d94)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+org.postgresql.util.PSQLException: ERROR: insert or update on table "comments" violates foreign key constraint "comments_uid_fkey"
+  Detail: Key (uid)=(0) is not present in table "users".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.CommentDao.addComment(CommentDao.java:120)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:32:04 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:32:04 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@618eabf6)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+UID: 0
+org.postgresql.util.PSQLException: ERROR: insert or update on table "comments" violates foreign key constraint "comments_uid_fkey"
+  Detail: Key (uid)=(0) is not present in table "users".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.CommentDao.addComment(CommentDao.java:121)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:33:34 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:33:34 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@2602585e)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+UID: 0
+org.postgresql.util.PSQLException: ERROR: insert or update on table "comments" violates foreign key constraint "comments_uid_fkey"
+  Detail: Key (uid)=(0) is not present in table "users".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.CommentDao.addComment(CommentDao.java:121)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+UID: 0
+org.postgresql.util.PSQLException: ERROR: insert or update on table "comments" violates foreign key constraint "comments_uid_fkey"
+  Detail: Key (uid)=(0) is not present in table "users".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.CommentDao.addComment(CommentDao.java:121)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:36:35 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:36:35 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@347b21ea)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+UID: 0
+hi
+org.postgresql.util.PSQLException: No value specified for parameter 1.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:134)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:179)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.NewUserDao.addAnon(NewUserDao.java:45)
+	at photoshare.CommentDao.addComment(CommentDao.java:104)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:37:55 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:37:55 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@eefeff8)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+UID: 0
+hi
+org.postgresql.util.PSQLException: No value specified for parameter 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:134)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:179)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.NewUserDao.addAnon(NewUserDao.java:49)
+	at photoshare.CommentDao.addComment(CommentDao.java:104)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+UID: 0
+hi
+org.postgresql.util.PSQLException: No value specified for parameter 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:134)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:179)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.NewUserDao.addAnon(NewUserDao.java:49)
+	at photoshare.CommentDao.addComment(CommentDao.java:104)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:38:25 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:38:25 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@3b629e96)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+UID: 0
+hi
+org.postgresql.util.PSQLException: ERROR: column "uid" is of type integer but expression is of type character varying
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.NewUserDao.addAnon(NewUserDao.java:49)
+	at photoshare.CommentDao.addComment(CommentDao.java:104)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+UID: 0
+hi
+org.postgresql.util.PSQLException: ERROR: column "uid" is of type integer but expression is of type character varying
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.NewUserDao.addAnon(NewUserDao.java:49)
+	at photoshare.CommentDao.addComment(CommentDao.java:104)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+Apr 17, 2015 10:42:15 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:42:15 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+Apr 17, 2015 10:42:35 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:42:35 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@3f705316)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+UID: 0
+hi
+org.postgresql.util.PSQLException: ERROR: insert or update on table "comments" violates foreign key constraint "comments_uid_fkey"
+  Detail: Key (uid)=(0) is not present in table "users".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1512)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:188)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:430)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:346)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:300)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at photoshare.CommentDao.addComment(CommentDao.java:121)
+	at org.apache.jsp.picture_jsp._jspService(org.apache.jsp.picture_jsp:95)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:432)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:667)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Thread.java:695)
+UID: -1
+Apr 17, 2015 10:43:15 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 17, 2015 10:43:15 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@2143ed74)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10

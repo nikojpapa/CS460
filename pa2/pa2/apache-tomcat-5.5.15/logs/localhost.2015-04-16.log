@@ -2169,3 +2169,11 @@ java.lang.NullPointerException
 	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
 	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
 	at java.lang.Thread.run(Thread.java:695)
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()

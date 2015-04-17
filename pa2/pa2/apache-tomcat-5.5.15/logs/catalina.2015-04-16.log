@@ -252,3 +252,11 @@ Apr 16, 2015 10:07:25 PM org.apache.catalina.startup.HostConfig checkResources
 INFO: Undeploying context [/photoshare]
 Apr 16, 2015 10:07:25 PM org.apache.catalina.startup.HostConfig deployWAR
 INFO: Deploying web application archive photoshare.war
+Apr 16, 2015 10:11:31 PM org.apache.coyote.http11.Http11BaseProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-9545
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Apr 16, 2015 10:11:32 PM org.apache.coyote.http11.Http11BaseProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-9545
+Apr 16, 2015 10:11:32 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime

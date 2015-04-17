@@ -19,6 +19,62 @@ public class NewUserDao {
   private static final String NEW_USER_STMT = "INSERT INTO " +
       "Users (first_name, last_name, email, dob, password, gender, hometown_city, hometown_state, hometown_country, current_city, current_state, current_country, highschool, highschool_grad, college, college_grad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+  private static final String INSERT_ANONYMOUS_STMT = "INSERT INTO Users (uid, first_name, last_name, email, dob, password) VALUES (?, ?, ?, ?, ?, ?);";
+
+  public boolean addAnon() {
+    PreparedStatement stmt = null;
+    Connection conn = null;
+    ResultSet rs = null;
+    try {
+      conn = DbConnection.getConnection();
+      stmt = conn.prepareStatement(CHECK_EMAIL_STMT);
+      stmt.setString(1, "anonymous");
+      rs = stmt.executeQuery();
+      if (!rs.next()) {
+        // Theoretically this can't happen, but just in case...
+        return false;
+      }
+      int result = rs.getInt(1);
+      if (result > 0) {
+        // This email is already in use
+        return false; 
+      }
+
+      System.out.println("hi");
+      stmt = conn.prepareStatement(INSERT_ANONYMOUS_STMT);
+      stmt.setInt(1, -1);
+      stmt.setString(2, "anonymous");
+      stmt.setString(3, "");
+      stmt.setString(4, "anonymous");
+      stmt.setString(5, "");
+      stmt.setString(6, "");
+      stmt.executeUpdate();
+      return true;
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    } finally {
+      if (rs != null) {
+        try { rs.close(); }
+        catch (SQLException e) { ; }
+        rs = null;
+      }
+      
+      if (stmt != null) {
+        try { stmt.close(); }
+        catch (SQLException e) { ; }
+        stmt = null;
+      }
+      
+      if (conn != null) {
+        try { conn.close(); }
+        catch (SQLException e) { ; }
+        conn = null;
+      }
+    }
+  }
+
   public boolean create(String first, String last, String email, String dob, String password, String gender, String h_city, String h_state, String h_country, String c_city, String c_state, String c_country, String h_name, String h_grad, String c_name, String c_grad) {
     PreparedStatement stmt = null;
     Connection conn = null;

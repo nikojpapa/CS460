@@ -24,11 +24,10 @@ PictureDao picture = new PictureDao();
   <body>
     <p><a href="/photoshare/index.jsp">Return to main page</a></p>
     <img style="-webkit-user-select: none" src="http://localhost:9545/photoshare/img?picture_id=<%=pid %>">
-
     <br>
     <%= picture.listTags(pid) %>
 
-    <h2>Comments</h2>
+    <div><h2>Comments</h2><div id='num_likes'></div> Likes</div>
     <form id="leave_comment" action="picture.jsp" method="post">
       <input type="hidden" name="pid" value=<%=pid %> ></input>
       <input type="hidden" name="user" value=<%=userEmail %> ></input>

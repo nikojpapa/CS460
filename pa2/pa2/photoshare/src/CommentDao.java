@@ -92,10 +92,17 @@ public class CommentDao {
 			stmt.setString(1, userEmail);
 			rs = stmt.executeQuery();
 
-			int uid = -1;
+			int uid = 0;
 			if (rs.next()) {
 				//user is signed in
 				uid = rs.getInt(1);
+			}
+			System.out.println("UID: " + uid);
+
+			if (uid == 0) {
+				NewUserDao newUser = new NewUserDao();
+				newUser.addAnon();
+				uid = -1;
 			}
 
 			stmt = conn.prepareStatement(TEST_USR_STMT);
