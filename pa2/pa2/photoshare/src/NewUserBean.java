@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * A bean that handles new user data
  *
- * @author G. Zervas <cs460tf@bu.edu>
+ * @author Nicholas Papadopoulos <npapa@bu.edu>
  */
 public class NewUserBean {
   private String first = "";

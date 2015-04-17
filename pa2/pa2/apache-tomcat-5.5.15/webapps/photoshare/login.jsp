@@ -26,7 +26,7 @@
             List<Integer> pictureIds = pictureDao.allPicturesIds();
             for (Integer pictureId : pictureIds) {
         %>
-        <td><a href="/photoshare/img?picture_id=<%= pictureId %>">
+        <td><a href="/photoshare/picture.jsp?pid=<%= pictureId %>&user=anonymous">
             <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
         </a>
         </td>

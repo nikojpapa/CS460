@@ -1,8 +1,11 @@
+DROP VIEW comms;
+DROP VIEW pics;
+
+DROP TABLE Tags;
+DROP TABLE Comments;
 DROP TABLE Pictures;
 DROP TABLE Friends;
 DROP TABLE Albums;
-DROP TABLE Tags;
-DROP TABLE Comments;
 DROP TABLE Users;
 
 DROP SEQUENCE Pictures_picture_id_seq;
@@ -104,9 +107,11 @@ CREATE TABLE Comments
 (
   cid int4 NOT NULL DEFAULT nextval('Comments_comment_id_seq') PRIMARY KEY,
   comment_text varchar(255) NOT NULL,
-  comment_date varchar(255),
+  comment_date varchar(255) NOT NULL,
   uid int4 NOT NULL REFERENCES Users(uid) ON DELETE CASCADE,
   pid int4 NOT NULL REFERENCES Pictures(picture_id) ON DELETE CASCADE
 );
 
 INSERT INTO Users (first_name, last_name, email, dob, password) VALUES ('test', 'test', 'test@bu.edu', '2015-04-09', 'test');
+
+INSERT INTO Users (uid, first_name, last_name, email, dob, password) VALUES (-1, 'anonymous', '', '', '', '');

@@ -9,7 +9,6 @@
 <%
   TagDao tag = new TagDao();
   String tag_name = request.getParameter("tag_name");
-  String url = "tags.jsp?tag_name=" + tag_name;
   String userEmail = request.getUserPrincipal().getName();
   int tid = tag.getTID(tag_name);
   String all = request.getParameter("all");
@@ -60,7 +59,7 @@
             }
             for (Integer pictureId : pictureIds) {
         %>
-        <td><a href="/photoshare/img?picture_id=<%= pictureId %>">
+        <td><a href="/photoshare/picture.jsp?pid=<%= pictureId %>&user=<%= userEmail %>">
             <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
         </a><br>
         <form class="delete_pic" action="tags.jsp" method="post">

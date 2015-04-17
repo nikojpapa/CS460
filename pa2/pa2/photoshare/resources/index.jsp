@@ -95,7 +95,7 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
             List<Integer> pictureIds = pictureDao.allPicturesIds();
             for (Integer pictureId : pictureIds) {
         %>
-        <td><a href="/photoshare/picture.jsp?pid=<%= pictureId %>">
+        <td><a href="/photoshare/picture.jsp?pid=<%= pictureId %>&user=<%= userEmail %>">
             <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
         </a>
         </td>

@@ -39,7 +39,7 @@
             List<Integer> pictureIds = pictures.albumPictureIds(aid);
             for (Integer pictureId : pictureIds) {
         %>
-        <td><a href="/photoshare/img?picture_id=<%= pictureId %>">
+        <td><a href="/photoshare/picture.jsp?pid=<%= pictureId %>&user=<%= userEmail %>">
             <img src="/photoshare/img?t=1&picture_id=<%= pictureId %>"/>
         </a><br>
         <form action="albums.jsp" method="post">

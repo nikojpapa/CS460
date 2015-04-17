@@ -47,10 +47,12 @@ public class PictureDao {
 			stmt.setInt(1, pid);
 			rs = stmt.executeQuery();
 
-			String list = "";
+			String list = "<p>";
 			while (rs.next()) {
-				list += rs.getString(1) + ", ";
+				String name = rs.getString(1);
+				list += "<a href='/photoshare/tags.jsp?tag_name=" + name + "&deleted=false&all=true'>" + name + "</a>    ";
 			}
+			list += "</p>";
 
 			rs.close();
 			rs = null;
@@ -216,7 +218,6 @@ public class PictureDao {
 			} else {
 				stmtStr = TAG_PICTURE_IDS_STMT;
 			}
-			System.out.println(stmtStr);
 			stmt = conn.prepareStatement(stmtStr);
 			stmt.setString(1, tag_name);
 			if (!userEmail.equals("all")) {

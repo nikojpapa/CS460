@@ -33,11 +33,6 @@ public class Rankings {
 
 	    try {
 			conn = DbConnection.getConnection();
-			stmt = conn.prepareStatement(DROP_COMMS_COUNT);
-			stmt.execute();
-
-			stmt = conn.prepareStatement(DROP_PICS_COUNT);
-			stmt.execute();
 			
 			stmt = conn.prepareStatement(GET_COMMS_COUNT);
 			stmt.execute();
@@ -48,13 +43,18 @@ public class Rankings {
 			stmt = conn.prepareStatement(GET_RANKINGS);
 			rs = stmt.executeQuery();
 
+			stmt = conn.prepareStatement(DROP_COMMS_COUNT);
+			stmt.execute();
+
+			stmt = conn.prepareStatement(DROP_PICS_COUNT);
+			stmt.execute();
+
 			for (int i = 1; i <= 10; i++) {
 				if (rs.next()) {
-					String contrib = rs.getString(3);
-					if (contrib == null) {
-						contrib = "0";
+					if (rs.getString(1) != null) {
+						String contrib = rs.getString(3);
+						results += i + ") " + rs.getString(1) + " " + rs.getString(2) + " | " + contrib + "<br>";
 					}
-					results += i + ") " + rs.getString(1) + " " + rs.getString(2) + " | " + contrib + "<br>";
 				}
 			}
 
