@@ -22,7 +22,68 @@ public class CommentDao {
 
 	private static final String LIST_COMMENTS_STMT = "SELECT comment_text, uid, comment_date FROM Comments WHERE pid = ? AND comment_text != 'like' ORDER BY comment_date";
 
+	private static final String LIST_LIKES_STMT = "SELECT uid FROM Comments WHERE pid = ? AND comment_text = 'like' ORDER BY comment_date";
+
 	private static final String TEST_USR_STMT = "SELECT p.picture_id FROM Users u, Pictures p, Albums a WHERE u.uid = ? AND p.picture_id = ? AND u.uid = a.uid AND a.aid = p.album_id";
+
+	public String listLikes(int pid) {
+		PreparedStatement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		int count = 0;
+		
+		String comments = "";
+		try {
+			conn = DbConnection.getConnection();
+			stmt = conn.prepareStatement(LIST_LIKES_STMT);
+			stmt.setInt(1, pid);
+			rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				stmt = conn.prepareStatement(GET_EMAIL_STMT);
+				stmt.setInt(1, rs.getInt(1));
+				ResultSet rs2 = stmt.executeQuery();
+				if (!rs2.next()) {
+					//should never happen
+					return "";
+				}
+				String userEmail = rs2.getString(1);
+				rs2.close();
+				rs2 = null;
+
+				comments += "<tr><td><p style='text-indent: 1em;'>" + userEmail + "</p></td></tr>";
+				count++;
+			}
+			comments += count;
+
+			rs.close();
+			rs = null;
+
+			stmt.close();
+			stmt = null;
+
+			conn.close();
+			conn = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			if (rs != null) {
+				try { rs.close(); } catch (SQLException e) { ; }
+				rs = null;
+			}
+			if (stmt != null) {
+				try { stmt.close(); } catch (SQLException e) { ; }
+				stmt = null;
+			}
+			if (conn != null) {
+				try { conn.close(); } catch (SQLException e) { ; }
+				conn = null;
+			}
+		}
+
+		return comments;
+	}
 
   	public String listComments(int pid) {
 		PreparedStatement stmt = null;
@@ -100,9 +161,16 @@ public class CommentDao {
 			System.out.println("UID: " + uid);
 
 			if (uid == 0) {
+				if (text.equals("like")) {
+					//anonymous users cannot like photo
+					return false;
+				}
 				NewUserDao newUser = new NewUserDao();
 				newUser.addAnon();
 				uid = -1;
+			} else if (uid == -1 && text.equals("like")) {
+				//anonymous users cannot like photo
+				return false;
 			}
 
 			stmt = conn.prepareStatement(TEST_USR_STMT);
@@ -110,7 +178,7 @@ public class CommentDao {
 			stmt.setInt(2, pid);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				//users cannot leave comments on their own pictures
+				//users cannot like or leave comments on their own pictures
 				return false;
 			}
 

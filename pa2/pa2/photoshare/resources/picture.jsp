@@ -11,6 +11,7 @@ int pid = Integer.parseInt(request.getParameter("pid"));
 String userEmail = request.getParameter("user");
 String new_comm = request.getParameter("comment_text");
 PictureDao picture = new PictureDao();
+CommentDao comment = new CommentDao();
 %>
 
 
@@ -27,7 +28,25 @@ PictureDao picture = new PictureDao();
     <br>
     <%= picture.listTags(pid) %>
 
-    <div><h2>Comments</h2><div id='num_likes'></div> Likes</div>
+    <h2>Comments</h2>
+
+    <form id="like_pic" action="picture.jsp" method="post">
+      <input type="hidden" name="pid" value=<%=pid %> ></input>
+      <input type="hidden" name="user" value=<%=userEmail %> ></input>
+      <input type="hidden" name="comment_text" value = "like"/>
+      <input type="submit" value="Like This Picture"> </input>
+    </form>
+
+    <a id="num_likes" href='javascript:void(0);' onclick="
+      var div = document.getElementById('likes');
+      if (div.style.display !== 'none') {
+          div.style.display = 'none';
+      }
+      else {
+          div.style.display = 'block';
+      }"></a> Likes
+    <table id='likes'></table>
+
     <form id="leave_comment" action="picture.jsp" method="post">
       <input type="hidden" name="pid" value=<%=pid %> ></input>
       <input type="hidden" name="user" value=<%=userEmail %> ></input>
@@ -38,12 +57,22 @@ PictureDao picture = new PictureDao();
 
     <br><br>
     <%
-    CommentDao comment = new CommentDao();
     if (new_comm != null) {
       comment.addComment(new_comm, new Date().toLocaleString(), userEmail, pid);
     }
 
     String comments = comment.listComments(pid);
+
+    String likes_list = comment.listLikes(pid);
+    int num_likes = 0;
+    if (!likes_list.equals("")) {
+      num_likes = Integer.parseInt(likes_list.substring(likes_list.length() - 1));
+
+      likes_list = likes_list.substring(0, likes_list.length()-1);
+      System.out.println("HFSN: " + likes_list);
+    };
+    %>
+    <%="<script>document.getElementById('num_likes').text = '" + num_likes + "'; document.getElementById('likes').innerHTML = '" + likes_list.replace("'", "\\'") + "'; document.getElementById('likes').style.display = 'none';</script>"
     %>
 
     <%= comments %>

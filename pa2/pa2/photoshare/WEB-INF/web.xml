@@ -32,7 +32,7 @@
             <url-pattern>/index.jsp</url-pattern>
             <url-pattern>/friendList.jsp</url-pattern>
             <url-pattern>/albums.jsp</url-pattern>
-<!--            <url-pattern>/tags.jsp</url-pattern>-->
+            <url-pattern>/tags.jsp</url-pattern>
             <url-pattern>/someOtherProtectedPage.jsp</url-pattern>
             <!--
             THIS IS AN EXAMPLE OF A PATTERN TO MATCH MANY PAGES

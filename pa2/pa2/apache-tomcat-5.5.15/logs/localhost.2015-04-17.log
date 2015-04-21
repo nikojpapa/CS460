@@ -418,3 +418,11 @@ Caused by: org.postgresql.util.PSQLException: ERROR: insert or update on table "
 	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
 	at photoshare.CommentDao.addComment(CommentDao.java:121)
 	... 22 more
+Apr 17, 2015 10:44:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Apr 17, 2015 10:44:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Apr 17, 2015 10:44:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Apr 17, 2015 10:44:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
