@@ -25,6 +25,7 @@ CommentDao comment = new CommentDao();
   <body>
     <p><a href="/photoshare/index.jsp">Return to main page</a></p>
     <img style="-webkit-user-select: none" src="http://localhost:9545/photoshare/img?picture_id=<%=pid %>">
+    <%= picture.getCaption(pid) %>
     <br>
     <%= picture.listTags(pid) %>
 

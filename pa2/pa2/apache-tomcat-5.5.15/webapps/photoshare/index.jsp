@@ -34,6 +34,9 @@
         url += "&";
     }
     String current_tags = request.getParameter("rectags");
+    if (current_tags == null) {
+        current_tags = "";
+    }
     List<String> tagList = new ArrayList<String>();
     String suggest_tags = "";
     if (current_tags != null && !current_tags.equals("")) {
@@ -62,10 +65,10 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
         var new_tags = document.getElementById('tags').value;
         document.getElementById('tagLink').setAttribute('href','<%=url %>rectags=' + new_tags);
         ">Recommend Tags</a></p>
+    <p>Caption: <input type="text" name="caption"/></p>
 
     <input type="submit" value="Upload"/><br/>
 </form>
-<% System.out.println("<script>document.getElementById('tags').value = '" + current_tags + ", " + suggest_tags + "'</script>"); %>
 <%="<script>document.getElementById('tags').value = '" + current_tags + suggest_tags + "'</script>" %>
 
 <%

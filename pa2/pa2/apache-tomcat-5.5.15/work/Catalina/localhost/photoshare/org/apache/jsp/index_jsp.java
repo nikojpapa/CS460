@@ -91,6 +91,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         url += "&";
     }
     String current_tags = request.getParameter("rectags");
+    if (current_tags == null) {
+        current_tags = "";
+    }
     List<String> tagList = new ArrayList<String>();
     String suggest_tags = "";
     if (current_tags != null && !current_tags.equals("")) {
@@ -124,11 +127,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(url );
       out.write("rectags=' + new_tags);\n");
       out.write("        \">Recommend Tags</a></p>\n");
+      out.write("    <p>Caption: <input type=\"text\" name=\"caption\"/></p>\n");
       out.write("\n");
       out.write("    <input type=\"submit\" value=\"Upload\"/><br/>\n");
       out.write("</form>\n");
- System.out.println("<script>document.getElementById('tags').value = '" + current_tags + ", " + suggest_tags + "'</script>"); 
-      out.write('\n');
       out.print("<script>document.getElementById('tags').value = '" + current_tags + suggest_tags + "'</script>" );
       out.write('\n');
       out.write('\n');

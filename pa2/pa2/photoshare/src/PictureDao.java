@@ -13,6 +13,8 @@ import java.util.List;
  * @author Nicholas Papadopoulos <npapa@bu.edu>
  */
 public class PictureDao {
+  private static final String GET_CAPTION_STMT = "SELECT caption FROM Pictures WHERE picture_id = ?";
+
   private static final String LOAD_PICTURE_STMT = "SELECT " +
       "\"caption\", \"imgdata\", \"thumbdata\", \"size\", \"content_type\" FROM Pictures WHERE \"picture_id\" = ?";
 
@@ -34,6 +36,51 @@ public class PictureDao {
 
   private static final String GET_UID_STMT = "SELECT uid FROM Users u, Albums a, Pictures p WHERE p.picture_id = ? AND p.album_id = a.aid AND a.uid = u.uid";
 
+  public String getCaption(int pid) {
+  		PreparedStatement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		
+		List<Integer> picturesIds = new ArrayList<Integer>();
+		try {
+			conn = DbConnection.getConnection();
+			stmt = conn.prepareStatement(GET_CAPTION_STMT);
+			stmt.setInt(1, pid);
+			rs = stmt.executeQuery();
+
+			String caption = "";
+			while (rs.next()) {
+				caption += rs.getString(1);
+			}
+
+			rs.close();
+			rs = null;
+
+			stmt.close();
+			stmt = null;
+
+			conn.close();
+			conn = null;
+
+			return caption;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			if (rs != null) {
+				try { rs.close(); } catch (SQLException e) { ; }
+				rs = null;
+			}
+			if (stmt != null) {
+				try { stmt.close(); } catch (SQLException e) { ; }
+				stmt = null;
+			}
+			if (conn != null) {
+				try { conn.close(); } catch (SQLException e) { ; }
+				conn = null;
+			}
+		}
+  }
 
   public String listTags(int pid) {
   	PreparedStatement stmt = null;

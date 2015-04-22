@@ -360,3 +360,23 @@ Apr 22, 2015 4:15:47 PM org.apache.catalina.startup.HostConfig checkResources
 INFO: Undeploying context [/photoshare]
 Apr 22, 2015 4:15:47 PM org.apache.catalina.startup.HostConfig deployWAR
 INFO: Deploying web application archive photoshare.war
+Apr 22, 2015 4:23:27 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:23:27 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+Apr 22, 2015 4:34:28 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:34:28 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+Apr 22, 2015 4:34:58 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:34:58 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+Apr 22, 2015 4:35:48 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:35:48 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+Apr 22, 2015 4:36:58 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:36:58 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
