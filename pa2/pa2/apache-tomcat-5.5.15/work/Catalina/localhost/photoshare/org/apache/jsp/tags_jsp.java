@@ -55,7 +55,7 @@ public final class tags_jsp extends org.apache.jasper.runtime.HttpJspBase
   if (request.getUserPrincipal() != null) {
     userEmail = request.getUserPrincipal().getName();
   }
-  int tid = tag.getTID(tag_name);
+  int tid = tag.getTID(userEmail, tag_name);
   String all = request.getParameter("all");
 
       out.write("\n");
@@ -163,7 +163,7 @@ if (request.getParameter("deleted").equals("true")) {
       out.write("  document.getElementById(\"page_head\").innerText = \"Tag Deleted\";\n");
       out.write("  </script>\n");
  }
-if (all != null  || userEmail.equals("anonymous")) { 
+if (all != null  || userEmail.equals("anonymous") || tid == -1) { 
       out.write("\n");
       out.write("  <script>\n");
       out.write("  document.getElementById(\"delete_form\").remove();\n");

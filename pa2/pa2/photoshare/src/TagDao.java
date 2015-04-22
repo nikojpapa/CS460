@@ -19,7 +19,7 @@ public class TagDao {
 
 	private static final String GET_UID_STMT = "SELECT uid FROM Users WHERE email = ?";
 
-	private static final String GET_TID_STMT = "SELECT tid FROM Tags WHERE tag_name = ?";
+	private static final String GET_TID_STMT = "SELECT t.tid FROM Tags t, Users u, Albums a, Pictures p WHERE u.email = ? AND u.uid = a.uid AND a.aid = p.album_id AND p.picture_id = t.pid AND t.tag_name = ?";
 
     private static final String LIST_TAGS_STMT = "SELECT DISTINCT tag_name FROM Tags t, (" + GET_UID_STMT + ") u, Albums a, Pictures p WHERE u.uid = a.uid AND a.aid = p.album_id AND p.picture_id = t.pid ORDER BY tag_name";
 
@@ -198,7 +198,7 @@ public class TagDao {
 		}
     }
 
- 	public int getTID(String tag_name) {
+ 	public int getTID(String userEmail, String tag_name) {
  		PreparedStatement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
@@ -208,7 +208,8 @@ public class TagDao {
 	    try {
 			conn = DbConnection.getConnection();
 			stmt = conn.prepareStatement(GET_TID_STMT);
-			stmt.setString(1, tag_name);
+			stmt.setString(1, userEmail);
+			stmt.setString(2, tag_name);
 			rs = stmt.executeQuery();
 			
 			if (!rs.next()) {
