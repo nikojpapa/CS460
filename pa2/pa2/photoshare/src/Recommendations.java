@@ -39,7 +39,6 @@ public class Recommendations {
 			}
 			rec_tags += "1=1 GROUP BY t.tag_name ORDER BY count DESC LIMIT 5";
 
-			System.out.println("QUERY: " + rec_tags);
 			stmt = conn.prepareStatement(rec_tags);
 			rs = stmt.executeQuery();
 

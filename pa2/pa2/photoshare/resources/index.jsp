@@ -65,7 +65,6 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 
     <input type="submit" value="Upload"/><br/>
 </form>
-<% System.out.println("<script>document.getElementById('tags').value = '" + current_tags + ", " + suggest_tags + "'</script>"); %>
 <%="<script>document.getElementById('tags').value = '" + current_tags + suggest_tags + "'</script>" %>
 
 <%
