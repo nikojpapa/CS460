@@ -11,6 +11,7 @@ import photoshare.Rankings;
 import photoshare.Recommendations;
 import org.apache.commons.fileupload.FileUploadException;
 import java.util.List;
+import java.util.ArrayList;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -57,6 +58,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       photoshare.ImageUploadBean imageUploadBean = null;
       synchronized (_jspx_page_context) {
         imageUploadBean = (photoshare.ImageUploadBean) _jspx_page_context.getAttribute("imageUploadBean", PageContext.PAGE_SCOPE);
@@ -77,7 +79,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>\n");
       out.write("<h1>A photo sharing application for CS460/660 PA2</h1>\n");
       out.write("\n");
- String userEmail = request.getUserPrincipal().getName(); 
+  
+    String userEmail = request.getUserPrincipal().getName(); 
+    PictureDao pictureDao = new PictureDao();
+    Recommendations rec = new Recommendations();
+
+    String url = request.getRequestURL().toString();
+    if (!url.contains("?")) {
+        url += "?";
+    } else {
+        url += "&";
+    }
+    String current_tags = request.getParameter("rectags");
+    List<String> tagList = new ArrayList<String>();
+    String suggest_tags = "";
+    if (current_tags != null && !current_tags.equals("")) {
+        tagList = rec.recTags(current_tags);
+
+        for (String tagName : tagList) {
+            suggest_tags += tagName + ", ";
+        }
+        suggest_tags = ", " + suggest_tags.substring(0, suggest_tags.length()-2);
+    }
+
       out.write("\n");
       out.write("\n");
       out.write("Hello <b><code>");
@@ -94,14 +118,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<form action=\"index.jsp\" enctype=\"multipart/form-data\" method=\"post\">\n");
       out.write("    <p>Filename: <input type=\"file\" name=\"filename\"/></p>\n");
       out.write("    <p>Album: <input type=\"text\" name=\"album_name\"/></p>\n");
-      out.write("    <p>Tags: <input type=\"text\" name=\"tags\"/></p>\n");
+      out.write("    <p>Tags: <input id=\"tags\" type=\"text\" name=\"tags\"/> <a id=\"tagLink\" href=\"#\" onclick=\"\n");
+      out.write("        var new_tags = document.getElementById('tags').value;\n");
+      out.write("        document.getElementById('tagLink').setAttribute('href','");
+      out.print(url );
+      out.write("rectags=' + new_tags);\n");
+      out.write("        \">Recommend Tags</a></p>\n");
       out.write("\n");
       out.write("    <input type=\"submit\" value=\"Upload\"/><br/>\n");
       out.write("</form>\n");
-      out.write("\n");
+ System.out.println("<script>document.getElementById('tags').value = '" + current_tags + ", " + suggest_tags + "'</script>"); 
+      out.write('\n');
+      out.print("<script>document.getElementById('tags').value = '" + current_tags + suggest_tags + "'</script>" );
+      out.write('\n');
+      out.write('\n');
 
-    PictureDao pictureDao = new PictureDao();
-    Recommendations rec = new Recommendations();
     String err = "";
 
     try { 

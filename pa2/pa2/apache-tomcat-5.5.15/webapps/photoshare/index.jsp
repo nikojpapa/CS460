@@ -9,6 +9,7 @@
 <%@ page import="photoshare.Recommendations" %>
 <%@ page import="org.apache.commons.fileupload.FileUploadException" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="imageUploadBean"
              class="photoshare.ImageUploadBean">
@@ -21,7 +22,29 @@
 <body>
 <h1>A photo sharing application for CS460/660 PA2</h1>
 
-<% String userEmail = request.getUserPrincipal().getName(); %>
+<%  
+    String userEmail = request.getUserPrincipal().getName(); 
+    PictureDao pictureDao = new PictureDao();
+    Recommendations rec = new Recommendations();
+
+    String url = request.getRequestURL().toString();
+    if (!url.contains("?")) {
+        url += "?";
+    } else {
+        url += "&";
+    }
+    String current_tags = request.getParameter("rectags");
+    List<String> tagList = new ArrayList<String>();
+    String suggest_tags = "";
+    if (current_tags != null && !current_tags.equals("")) {
+        tagList = rec.recTags(current_tags);
+
+        for (String tagName : tagList) {
+            suggest_tags += tagName + ", ";
+        }
+        suggest_tags = ", " + suggest_tags.substring(0, suggest_tags.length()-2);
+    }
+%>
 
 Hello <b><code><%= userEmail  %></code></b>, click here to
 <a href="/photoshare/logout.jsp">log out</a><br><br>
@@ -35,14 +58,17 @@ Click here to <a href="/photoshare/friendList.jsp"> show friends list</a>
 <form action="index.jsp" enctype="multipart/form-data" method="post">
     <p>Filename: <input type="file" name="filename"/></p>
     <p>Album: <input type="text" name="album_name"/></p>
-    <p>Tags: <input type="text" name="tags"/></p>
+    <p>Tags: <input id="tags" type="text" name="tags"/> <a id="tagLink" href="#" onclick="
+        var new_tags = document.getElementById('tags').value;
+        document.getElementById('tagLink').setAttribute('href','<%=url %>rectags=' + new_tags);
+        ">Recommend Tags</a></p>
 
     <input type="submit" value="Upload"/><br/>
 </form>
+<% System.out.println("<script>document.getElementById('tags').value = '" + current_tags + ", " + suggest_tags + "'</script>"); %>
+<%="<script>document.getElementById('tags').value = '" + current_tags + suggest_tags + "'</script>" %>
 
 <%
-    PictureDao pictureDao = new PictureDao();
-    Recommendations rec = new Recommendations();
     String err = "";
 
     try { 

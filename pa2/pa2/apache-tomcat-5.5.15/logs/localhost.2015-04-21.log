@@ -4309,3 +4309,11 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "ft.fullcount" must 
 	at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:92)
 	at photoshare.Recommendations.recPics(Recommendations.java:49)
 	... 22 more
+Apr 21, 2015 10:26:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Apr 21, 2015 10:26:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Apr 21, 2015 10:26:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Apr 21, 2015 10:26:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
