@@ -95,14 +95,15 @@ public class Recommendations {
 				tag_names.add(rs.getString(1));
 			}
 
-			String rec_pics = "SELECT t.pid, COUNT(t.tag_name) AS matching, SUM(ft.count) AS concision FROM Tags t, (SELECT t2.pid, COUNT(t2.tag_name) AS count FROM Tags t2 GROUP BY t2.pid ORDER BY count) ft WHERE (";
+			String rec_pics = "SELECT t.pid, COUNT(t.tag_name) AS matching, SUM(ft.count) AS concision FROM Tags t, (SELECT t2.pid, COUNT(t2.tag_name) AS count FROM Tags t2 GROUP BY t2.pid ORDER BY count) ft, Albums a, Users u, Pictures p WHERE (";
 
 			for (String tagName : tag_names) {
 				rec_pics += "t.tag_name = '" + tagName + "' OR ";
 			}
-			rec_pics += "1=2) AND t.pid = ft.pid GROUP BY t.pid ORDER BY matching DESC, concision LIMIT 5";
+			rec_pics += "1=2) AND t.pid = ft.pid AND t.pid = p.picture_id AND p.album_id = a.aid AND a.uid = u.uid AND u.email != ? GROUP BY t.pid ORDER BY matching DESC, concision LIMIT 5";
 
 			stmt = conn.prepareStatement(rec_pics);
+			stmt.setString(1, userEmail);
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {

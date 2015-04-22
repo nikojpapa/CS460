@@ -13310,3 +13310,21 @@ AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@115
    LogAbandoned: true
    RemoveAbandoned: true
    RemoveAbandonedTimeout: 10
+Apr 22, 2015 4:52:28 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:52:28 PM org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated
+Apr 22, 2015 4:52:28 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@5b202f4d)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
+Apr 22, 2015 4:57:08 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/photoshare]
+Apr 22, 2015 4:57:08 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive photoshare.war
+AbandonedObjectPool is used (org.apache.tomcat.dbcp.dbcp.AbandonedObjectPool@5da0ff10)
+   LogAbandoned: true
+   RemoveAbandoned: true
+   RemoveAbandonedTimeout: 10
