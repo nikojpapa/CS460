@@ -9,7 +9,10 @@
 <%
   TagDao tag = new TagDao();
   String tag_name = request.getParameter("tag_name");
-  String userEmail = request.getUserPrincipal().getName();
+  String userEmail = "anonymous";
+  if (request.getUserPrincipal() != null) {
+    userEmail = request.getUserPrincipal().getName();
+  }
   int tid = tag.getTID(tag_name);
   String all = request.getParameter("all");
 %>
@@ -84,7 +87,7 @@ if (request.getParameter("deleted").equals("true")) { %>
   document.getElementById("page_head").innerText = "Tag Deleted";
   </script>
 <% }
-if (!(all == null)) { %>
+if (all != null  || userEmail.equals("anonymous")) { %>
   <script>
   document.getElementById("delete_form").remove();
   var delete_buttons = document.getElementsByClassName("delete_pic");
