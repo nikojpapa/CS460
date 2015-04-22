@@ -37,7 +37,6 @@ public class Recommendations {
 			while (rs.next()) {
 				tag_names.add(rs.getString(1));
 			}
-			System.out.println("TAGS: " + tag_names);
 
 			String rec_pics = "SELECT t.pid, COUNT(t.tag_name) AS matching, SUM(ft.count) AS concision FROM Tags t, (SELECT t2.pid, COUNT(t2.tag_name) AS count FROM Tags t2 GROUP BY t2.pid ORDER BY count) ft WHERE ";
 
@@ -45,8 +44,6 @@ public class Recommendations {
 				rec_pics += "t.tag_name = '" + tagName + "' OR ";
 			}
 			rec_pics += "1=2 AND t.pid = ft.pid GROUP BY t.pid ORDER BY matching DESC, concision LIMIT 5";
-
-			System.out.println("QUERY: " + rec_pics);
 
 			stmt = conn.prepareStatement(rec_pics);
 			rs = stmt.executeQuery();
