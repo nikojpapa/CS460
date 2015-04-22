@@ -125,7 +125,6 @@ CommentDao comment = new CommentDao();
       num_likes = Integer.parseInt(likes_list.substring(likes_list.length() - 1));
 
       likes_list = likes_list.substring(0, likes_list.length()-1);
-      System.out.println("HFSN: " + likes_list);
     };
     
       out.write("\n");

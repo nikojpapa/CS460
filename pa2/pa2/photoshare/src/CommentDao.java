@@ -158,7 +158,6 @@ public class CommentDao {
 				//user is signed in
 				uid = rs.getInt(1);
 			}
-			System.out.println("UID: " + uid);
 
 			if (uid == 0) {
 				if (text.equals("like")) {

@@ -8,6 +8,7 @@ import photoshare.PictureDao;
 import photoshare.AlbumDao;
 import photoshare.TagDao;
 import photoshare.Rankings;
+import photoshare.Recommendations;
 import org.apache.commons.fileupload.FileUploadException;
 import java.util.List;
 
@@ -46,6 +47,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -99,7 +101,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
 
     PictureDao pictureDao = new PictureDao();
+    Recommendations rec = new Recommendations();
     String err = "";
+
     try { 
         Picture picture = imageUploadBean.upload(request);
         if (picture != null) {
@@ -169,6 +173,33 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
 
             List<Integer> pictureIds = pictureDao.allPicturesIds();
+            for (Integer pictureId : pictureIds) {
+        
+      out.write("\n");
+      out.write("        <td><a href=\"/photoshare/picture.jsp?pid=");
+      out.print( pictureId );
+      out.write("&user=");
+      out.print( userEmail );
+      out.write("\">\n");
+      out.write("            <img src=\"/photoshare/img?t=1&picture_id=");
+      out.print( pictureId );
+      out.write("\"/>\n");
+      out.write("        </a>\n");
+      out.write("        </td>\n");
+      out.write("        ");
+
+            }
+        
+      out.write("\n");
+      out.write("    </tr>\n");
+      out.write("</table>\n");
+      out.write("\n");
+      out.write("<h2>You-may-also-like</h2>\n");
+      out.write("<table>\n");
+      out.write("    <tr>\n");
+      out.write("        ");
+
+            pictureIds = rec.recPics(userEmail);
             for (Integer pictureId : pictureIds) {
         
       out.write("\n");
